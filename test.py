@@ -1,22 +1,31 @@
-from opfunu import draw_2d, draw_3d
 
-## Define a custom function, for example. I will use mealpy problem as an example
-from mealpy import Problem, FloatVar
 import numpy as np
+import matplotlib.pyplot as plt
+from opfunu.cec_based.cec2014 import F12014, F112014
 
-# Our custom problem class
-class Squared(Problem):
-    def __init__(self, bounds=None, minmax="min", data=None, **kwargs):
-        self.data = data
-        super().__init__(bounds, minmax, **kwargs)
+# Define the bounds and number of dimensions
+ndim = 2
+bounds = [-100, 100]
 
-    def obj_func(self, solution):
-        x = self.decode_solution(solution)["my_var"]
-        return np.sum(x ** 2)
+# Initialize the function with the specified bounds and dimensions
+f = F112014(ndim=ndim)
 
-bound = FloatVar(lb=(-10., )*20, ub=(10., )*20, name="my_var")
-custom_squared = Squared(bounds=bound, minmax="min", data="Amazing", name="Squared")
+# Generate a grid of x and y values
+x = np.linspace(bounds[0], bounds[1], 100)
+y = np.linspace(bounds[0], bounds[1], 100)
+X, Y = np.meshgrid(x, y)
 
-## Visualize function using utility function
-draw_2d(custom_squared.obj_func, custom_squared.lb, custom_squared.ub, selected_dims=(2, 3), n_points=300)
-draw_3d(custom_squared.obj_func, custom_squared.lb, custom_squared.ub, selected_dims=(2, 3), n_points=300)
+# evaluate the function at each point on the grid
+Z = np.array(
+    [f.evaluate([xi, yi]) for xi, yi in zip(X.flatten(), Y.flatten())]
+)
+Z = Z.reshape(X.shape)
+
+fig = plt.figure()
+ax = fig.add_subplot(111, projection='3d')
+ax.plot_surface(X, Y, Z, cmap='viridis')
+ax.set_xlabel('X')
+ax.set_ylabel('Y')
+ax.set_zlabel('Z')
+
+plt.show()
