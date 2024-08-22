@@ -76,6 +76,8 @@ def plot_heatmap_with_points(func, bounds=[-100, 100], cases=None, name=""):
     plt.xlabel('x')
     plt.ylabel('y')
     print(name)
+    nameChange = name.split(":")
+
     print(f'Best Point for case Random With Onepoint: {point_coords[0]} represented by the circle')
     print(f'Best Point for case Tournment With Onepoint: {point_coords[1]} represented by the triangle')
     print(f'Best Point for case Random With MultiPoints: {point_coords[2]} represented by the square')
@@ -86,21 +88,23 @@ def plot_heatmap_with_points(func, bounds=[-100, 100], cases=None, name=""):
     print(f'Best Fitness for case Random With MultiPoints: {fitness[2]} represented by the square')
     print(f'Best Fitness for case Tournment With MultiPoints: {fitness[3]} represented by the star')
 
-    f = open(f"{name}.txt", "a")
-    f.write(f'Best Point for case Random With Onepoint: {point_coords[0]} represented by the circle')
-    f.write(f'Best Point for case Tournment With Onepoint: {point_coords[1]} represented by the triangle')
-    f.write(f'Best Point for case Random With MultiPoints: {point_coords[2]} represented by the square')
-    f.write(f'Best Point for case Tournment With MultiPoints: {point_coords[3]} represented by the star')
+    f = open(f"{nameChange[0]}.txt", "w")
+    f.write(f'Best Point for case Random With Onepoint: {point_coords[0]} represented by the circle \n')
+    f.write(f'Best Point for case Tournment With Onepoint: {point_coords[1]} represented by the triangle \n')
+    f.write(f'Best Point for case Random With MultiPoints: {point_coords[2]} represented by the square \n')
+    f.write(f'Best Point for case Tournment With MultiPoints: {point_coords[3]} represented by the star \n')
 
-    f.write(f'Best Fitness for case Random With Onepoint: {fitness[0]} represented by the circle')
-    f.write(f'Best Fitness for case Tournment With Onepoint: {fitness[1]} represented by the triangle')
-    f.write(f'Best Fitness for case Random With MultiPoints: {fitness[2]} represented by the square')
-    f.write(f'Best Fitness for case Tournment With MultiPoints: {fitness[3]} represented by the star')
+    f.write(f'Best Fitness for case Random With Onepoint: {fitness[0]} represented by the circle\n')
+    f.write(f'Best Fitness for case Tournment With Onepoint: {fitness[1]} represented by the triangle \n')
+    f.write(f'Best Fitness for case Random With MultiPoints: {fitness[2]} represented by the square \n')
+    f.write(f'Best Fitness for case Tournment With MultiPoints: {fitness[3]} represented by the star \n')
     f.close()
     
     print("==========================================")
-    plt.savefig(f'{name}.png')
+    plt.savefig(f'{nameChange[0]}.png')
+
     plt.show()
+    
     
 
 def plot_heatmap_with_points_testCase(func, bounds=[-100, 100], cases=None, name=""):
@@ -156,19 +160,22 @@ def plot_heatmap_with_points_testCase(func, bounds=[-100, 100], cases=None, name
     plt.xlabel('x')
     plt.ylabel('y')
     print(name)
+    nameChange = name.split(":")
     print(f"In this cenario of comparation of {probCrossVect} Crossover probablitiry values and {k_wayTournamentVect} values for k in tournment")
     print(f'Best Point for case All test Cases: {point_coords} represented by the circle')
     print(f'Best Fitness for case All test Cases: {fitness} represented by the circle')
     print(f'The Best Crossover probability: {probCrossVect[indices//4]}')
     print(f'The Best K value for Tournament: {k_wayTournamentVect[indices%4]}')
     print("==========================================")
-    f = open(f"TestCase {name}.txt", "a")
-    f.write(f"In this cenario of comparation of {probCrossVect} Crossover probablitiry values and {k_wayTournamentVect} values for k in tournment")
-    f.write(f'Best Point for case All test Cases: {point_coords} represented by the circle')
-    f.write(f'Best Fitness for case All test Cases: {fitness} represented by the circle')
-    f.write(f'The Best Crossover probability: {probCrossVect[indices//4]}')
-    f.write(f'The Best K value for Tournament: {k_wayTournamentVect[indices%4]}')
+    f = open(f"TestCase {nameChange[0]}.txt", "w")
+    f.write(f"In this cenario of comparation of {probCrossVect} Crossover probablitiry values and {k_wayTournamentVect} values for k in tournment \n")
+    f.write(f'Best Point for case All test Cases: {point_coords} represented by the circle \n')
+    f.write(f'Best Fitness for case All test Cases: {fitness} represented by the circle \n')
+    f.write(f'The Best Crossover probability: {probCrossVect[indices//4]} \n')
+    f.write(f'The Best K value for Tournament: {k_wayTournamentVect[indices%4]} \n')
     f.close()
-    plt.savefig(f'TestCase {name}.png')
+    plt.savefig(f'TestCase {nameChange[0]}.png')
     plt.show()
+    
+    
     
