@@ -8,7 +8,7 @@ ndim = 2
 bounds = [-100, 100]
 
 # Initialize the function with the specified bounds and dimensions
-f = F112014(ndim=ndim)
+f = F12014(ndim=ndim)
 
 # Generate a grid of x and y values
 x = np.linspace(bounds[0], bounds[1], 100)
@@ -28,4 +28,15 @@ ax.set_xlabel('X')
 ax.set_ylabel('Y')
 ax.set_zlabel('Z')
 
+plt.show()
+
+import seaborn as sns
+
+
+# Plot the heatmap
+plt.figure(figsize=(8, 6))
+sns.heatmap(Z, cmap='coolwarm', xticklabels=False, yticklabels=False)
+plt.title('Heatmap of f(x, y) = sin(x) * cos(y)')
+plt.xlabel('x')
+plt.ylabel('y')
 plt.show()
