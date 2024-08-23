@@ -40,29 +40,32 @@ def run_test_cases():
     cases2dim2.npArray()
     
     # Print results
-    def print_results(cases, description):
-        print(f"============== {description} ==============")
-        print("Randomico com um ponto:")
-        print("Média fitness de 10 iteracoes: " + str(np.sum(cases.randomWithOnepointFitness) / 10))
-        print("Melhor fitness de 10 iteracoes: " + str(np.min(cases.randomWithOnepointFitness)))
+    def print_results(cases, description,name):
+        nameChange = name.split(":")
+        f = open(f"Caso{nameChange[0]}.txt", "w")
+        f.write(f"============== {description} =============="+"\n")
+        f.write("Randomico com um ponto:"+"\n")
+        f.write("Media fitness de 10 iteracoes: " + str(np.sum(cases.randomWithOnepointFitness) / 10) +"\n")
+        f.write("Melhor fitness de 10 iteracoes: " + str(np.min(cases.randomWithOnepointFitness))+"\n")
 
-        print("Torneio com um ponto:")
-        print("Média fitness de 10 iteracoes: " + str(np.sum(cases.tournamentWithOnepointFitness) / 10))
-        print("Melhor fitness de 10 iteracoes: " + str(np.min(cases.randomWithOnepointFitness)))
+        f.write("Torneio com um ponto:"+"\n")
+        f.write("Media fitness de 10 iteracoes: " + str(np.sum(cases.tournamentWithOnepointFitness) / 10)+"\n")
+        f.write("Melhor fitness de 10 iteracoes: " + str(np.min(cases.tournamentWithOnepointFitness))+"\n")
 
-        print("Randomico com multiplos pontos:")
-        print("Média fitness de 10 iteracoes: " + str(np.sum(cases.randomWithMultipointsFitness) / 10))
-        print("Melhor fitness de 10 iteracoes: " + str(np.min(cases.randomWithOnepointFitness)))
+        f.write("Randomico com multiplos pontos:"+"\n")
+        f.write("Media fitness de 10 iteracoes: " + str(np.sum(cases.randomWithMultipointsFitness) / 10)+"\n")
+        f.write("Melhor fitness de 10 iteracoes: " + str(np.min(cases.randomWithMultipointsFitness))+"\n")
 
-        print("Torneio com multiplos pontos:")
-        print("Média fitness de 10 iteracoes: " + str(np.sum(cases.tournamentWithMultipointsFitness) / 10))
-        print("Melhor fitness de 10 iteracoes: " + str(np.min(cases.randomWithOnepointFitness)))
-        print("==========================================")
-
-    print_results(cases10dim1, "Casos Convexo e 10 dimensões")
-    print_results(cases10dim2, "Casos não Convexo e 10 dimensões")
-    print_results(cases2dim1, "Casos Convexo e 2 dimensões")
-    print_results(cases2dim2, "Casos não Convexo e 2 dimensões")
+        f.write("Torneio com multiplos pontos:"+"\n")
+        f.write("Media fitness de 10 iteracoes: " + str(np.sum(cases.tournamentWithMultipointsFitness) / 10)+"\n")
+        f.write("Melhor fitness de 10 iteracoes: " + str(np.min(cases.tournamentWithMultipointsFitness))+"\n")
+        f.write("=========================================="+"\n")
+        f.close()
+    
+    print_results(cases10dim1, "Casos Convexo e 10 dimensoes",NAME_CONVEX)
+    print_results(cases10dim2, "Casos nao Convexo e 10 dimensoes",NAME_NCONVEX)
+    print_results(cases2dim1, "Casos Convexo e 2 dimensoes",NAME_CONVEX)
+    print_results(cases2dim2, "Casos nao Convexo e 2 dimensoes",NAME_NCONVEX)
 
     # Plot heatmaps
     plot_heatmap_with_points(func=FUNC_CONVEX, cases=cases2dim1,name = NAME_CONVEX)
@@ -70,14 +73,16 @@ def run_test_cases():
 
     probCrossVect = [0.7,0.75,0.8,0.85,0.9,0.95]
     k_wayTournamentVect = [0.2,0.3,0.4,0.5]
-    casesTestCase1Dim2 = TrabCases()
 
+    casesTestCase1Dim2 = TrabCases()
     casesTestCase2Dim2 = TrabCases()
+
     for i in range(len(probCrossVect)):
         for j in range(len(k_wayTournamentVect)):
-            casesTestCase1Dim2.testCaseTournament(problem_dict=PROBLEM_DICT_NCONVEX,pc=probCrossVect[i],k_way=k_wayTournamentVect[j])
+            casesTestCase1Dim2.testCaseTournament(problem_dict=PROBLEM_DICT_CONVEX,pc=probCrossVect[i],k_way=k_wayTournamentVect[j])
             casesTestCase2Dim2.testCaseTournament(problem_dict=PROBLEM_DICT_NCONVEX,pc=probCrossVect[i],k_way=k_wayTournamentVect[j])
     casesTestCase1Dim2.npArray()
+    casesTestCase2Dim2.npArray()
 
     plot_heatmap_with_points_testCase(func=FUNC_CONVEX, cases=casesTestCase1Dim2,name = NAME_CONVEX)
     plot_heatmap_with_points_testCase(func=FUNC_NCONVEX, cases=casesTestCase2Dim2,name = NAME_NCONVEX)

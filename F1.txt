@@ -1,8 +1,8 @@
-Best Point for case Random With Onepoint: [37.7006056 37.7006056] represented by the circle 
-Best Point for case Tournment With Onepoint: [37.61351385 37.61351385] represented by the triangle 
-Best Point for case Random With MultiPoints: [37.63690349 37.63690349] represented by the square 
-Best Point for case Tournment With MultiPoints: [ 12.72072515 -15.11474556] represented by the star 
-Best Fitness for case Random With Onepoint: 5906.774639922325 represented by the circle
-Best Fitness for case Tournment With Onepoint: 1794.687957409897 represented by the triangle 
-Best Fitness for case Random With MultiPoints: 2552.574298262942 represented by the square 
-Best Fitness for case Tournment With MultiPoints: 41751.83255272055 represented by the star 
+Best Point for case Random With Onepoint: [ -0.28138613 -43.33578511] represented by the circle 
+Best Point for case Tournment With Onepoint: [30.439601   22.83915383] represented by the triangle 
+Best Point for case Random With MultiPoints: [ 96.2764156  163.67828033] represented by the square 
+Best Point for case Tournment With MultiPoints: [22.79593458  6.49902634] represented by the star 
+Best Fitness for case Random With Onepoint: 14429.389888802336 represented by the circle
+Best Fitness for case Tournment With Onepoint: 47048.196498370846 represented by the triangle 
+Best Fitness for case Random With MultiPoints: 67996.90453186326 represented by the square 
+Best Fitness for case Tournment With MultiPoints: 49853.17561204255 represented by the star 
