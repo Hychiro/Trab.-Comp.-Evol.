@@ -1,14 +1,14 @@
 ============== Casos Convexo e 2 dimensoes ==============
 Randomico com um ponto:
-Media fitness de 10 iteracoes: 558391.4904856224
-Melhor fitness de 10 iteracoes: 14429.389888802336
+Media fitness de 10 iteracoes: 379727.62942103494
+Melhor fitness de 10 iteracoes: 8317.860339533308
 Torneio com um ponto:
-Media fitness de 10 iteracoes: 1044982.7668356868
-Melhor fitness de 10 iteracoes: 47048.196498370846
+Media fitness de 10 iteracoes: 2226760.2195124077
+Melhor fitness de 10 iteracoes: 4230.669907206848
 Randomico com multiplos pontos:
-Media fitness de 10 iteracoes: 961993.5193638053
-Melhor fitness de 10 iteracoes: 67996.90453186326
+Media fitness de 10 iteracoes: 87990.16708080626
+Melhor fitness de 10 iteracoes: 26143.714304974197
 Torneio com multiplos pontos:
-Media fitness de 10 iteracoes: 1269207.3039127144
-Melhor fitness de 10 iteracoes: 49853.17561204255
+Media fitness de 10 iteracoes: 537745.4165125487
+Melhor fitness de 10 iteracoes: 1050.221798126169
 ==========================================

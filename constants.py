@@ -18,12 +18,14 @@ PROBLEM_DICT_CONVEX = {
     "bounds": FloatVar(lb=FUNC_CONVEX.lb * DIM, ub=FUNC_CONVEX.ub * DIM),
     "obj_func": FUNC_CONVEX.evaluate,
     "minmax": "min",
+    "save_population": True
 }
 
 PROBLEM_DICT_NCONVEX = {
     "bounds": FloatVar(lb=FUNC_NCONVEX.lb * DIM, ub=FUNC_NCONVEX.ub * DIM),
     "obj_func": FUNC_NCONVEX.evaluate,
     "minmax": "min",
+    "save_population": True
 }
 
 DIM = 10
@@ -37,15 +39,17 @@ PROBLEM_DICT_CONVEX10 = {
     "bounds": FloatVar(lb=FUNC_CONVEX10.lb * DIM, ub=FUNC_CONVEX10.ub * DIM),
     "obj_func": FUNC_CONVEX10.evaluate,
     "minmax": "min",
+    "save_population": True
 }
 
 PROBLEM_DICT_NCONVEX10 = {
     "bounds": FloatVar(lb=FUNC_NCONVEX10.lb * DIM, ub=FUNC_NCONVEX10.ub * DIM),
     "obj_func": FUNC_NCONVEX10.evaluate,
     "minmax": "min",
+    "save_population": True
 }
 
 # Termination dictionary
 TERM_DICT = {
-    "max_early_stop": 50
+    "max_early_stop": 150
 }

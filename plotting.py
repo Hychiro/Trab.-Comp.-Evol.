@@ -104,7 +104,7 @@ def plot_heatmap_with_points(func, bounds=[-100, 100], cases=None, name=""):
     plt.savefig(f'{nameChange[0]}.png')
 
     plt.show()
-    
+    print_otherCases1(cases=cases,name=nameChange[0])
     
 
 def plot_heatmap_with_points_testCase(func, bounds=[-100, 100], cases=None, name=""):
@@ -176,6 +176,52 @@ def plot_heatmap_with_points_testCase(func, bounds=[-100, 100], cases=None, name
     f.close()
     plt.savefig(f'TestCase {nameChange[0]}.png')
     plt.show()
+    print_Others(cases=cases, name=nameChange[0])
     
-    
-    
+def print_otherCases1(cases,name):
+        model1 = cases.randomWithOnepointModels[np.argmin(cases.randomWithOnepointFitness)]
+        
+        model1.history.save_global_objectives_chart(filename=f"{name}/randomWithOnepoint/goc")
+        model1.history.save_local_objectives_chart(filename=f"{name}/randomWithOnepoint/loc")
+        model1.history.save_global_best_fitness_chart(filename=f"{name}/randomWithOnepoint/gbfc")
+        model1.history.save_local_best_fitness_chart(filename=f"{name}/randomWithOnepoint/lbfc")
+        model1.history.save_runtime_chart(filename=f"{name}/randomWithOnepoint/rtc")
+        model1.history.save_exploration_exploitation_chart(filename=f"{name}/randomWithOnepoint/eec")
+
+        model2 = cases.tournamentWithOnepointModels[np.argmin(cases.tournamentWithOnepointFitness)]
+
+        model2.history.save_global_objectives_chart(filename=f"{name}/tournamentWithOnepoint/goc")
+        model2.history.save_local_objectives_chart(filename=f"{name}/tournamentWithOnepoint/loc")
+        model2.history.save_global_best_fitness_chart(filename=f"{name}/tournamentWithOnepoint/gbfc")
+        model2.history.save_local_best_fitness_chart(filename=f"{name}/tournamentWithOnepoint/lbfc")
+        model2.history.save_runtime_chart(filename=f"{name}/tournamentWithOnepoint/rtc")
+        model2.history.save_exploration_exploitation_chart(filename=f"{name}/tournamentWithOnepoint/eec")
+
+        model3 = cases.randomWithMultipointsModels[np.argmin(cases.randomWithMultipointsFitness)]
+
+        model3.history.save_global_objectives_chart(filename=f"{name}/randomWithMultipoints/goc")
+        model3.history.save_local_objectives_chart(filename=f"{name}/randomWithMultipoints/loc")
+        model3.history.save_global_best_fitness_chart(filename=f"{name}/randomWithMultipoints/gbfc")
+        model3.history.save_local_best_fitness_chart(filename=f"{name}/randomWithMultipoints/lbfc")
+        model3.history.save_runtime_chart(filename=f"{name}/randomWithMultipoints/rtc")
+        model3.history.save_exploration_exploitation_chart(filename=f"{name}/randomWithMultipoints/eec")
+
+        model4 = cases.tournamentWithMultipointsModels[np.argmin(cases.tournamentWithMultipointsFitness)]
+
+        model4.history.save_global_objectives_chart(filename=f"{name}/tournamentWithMultipoints/goc")
+        model4.history.save_local_objectives_chart(filename=f"{name}/tournamentWithMultipoints/loc")
+        model4.history.save_global_best_fitness_chart(filename=f"{name}/tournamentWithMultipoints/gbfc")
+        model4.history.save_local_best_fitness_chart(filename=f"{name}/tournamentWithMultipoints/lbfc")
+        model4.history.save_runtime_chart(filename=f"{name}/tournamentWithMultipoints/rtc")
+        model4.history.save_exploration_exploitation_chart(filename=f"{name}/tournamentWithMultipoints/eec")
+
+def print_Others(cases,name):
+
+    model1 = cases.tournamentTestCaseModels[np.argmin(cases.tournamentTestCaseFitness)]
+        
+    model1.history.save_global_objectives_chart(filename=f"{name}/tournamentTestCase/goc")
+    model1.history.save_local_objectives_chart(filename=f"{name}/tournamentTestCase/loc")
+    model1.history.save_global_best_fitness_chart(filename=f"{name}/tournamentTestCase/gbfc")
+    model1.history.save_local_best_fitness_chart(filename=f"{name}/tournamentTestCase/lbfc")
+    model1.history.save_runtime_chart(filename=f"{name}/tournamentTestCase/rtc")
+    model1.history.save_exploration_exploitation_chart(filename=f"{name}/tournamentTestCase/eec")

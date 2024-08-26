@@ -1,5 +1,5 @@
 In this cenario of comparation of [0.7, 0.75, 0.8, 0.85, 0.9, 0.95] Crossover probablitiry values and [0.2, 0.3, 0.4, 0.5] values for k in tournment 
-Best Point for case All test Cases: [  91.39735192 -105.94788634] represented by the circle 
-Best Fitness for case All test Cases: 249.3106297631998 represented by the circle 
-The Best Crossover probability: 0.85 
-The Best K value for Tournament: 0.2 
+Best Point for case All test Cases: [ 103.8701927 -101.8387395] represented by the circle 
+Best Fitness for case All test Cases: 171.16887176746377 represented by the circle 
+The Best Crossover probability: 0.9 
+The Best K value for Tournament: 0.5 

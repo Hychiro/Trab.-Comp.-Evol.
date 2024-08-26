@@ -9,34 +9,34 @@ from plotting import plot_heatmap_with_points, plot_heatmap_with_points_testCase
 def run_test_cases():
     cases10dim1 = TrabCases()
     for _ in range(10):
-        cases10dim1.randomWithOnepoint(problem_dict=PROBLEM_DICT_CONVEX10)
-        cases10dim1.tournamentWithOnepoint(problem_dict=PROBLEM_DICT_CONVEX10)
-        cases10dim1.randomWithMultipoints(problem_dict=PROBLEM_DICT_CONVEX10)
-        cases10dim1.tournamentWithMultipoints(problem_dict=PROBLEM_DICT_CONVEX10)
+        cases10dim1.randomWithOnepoint(term=TERM_DICT,problem_dict=PROBLEM_DICT_CONVEX10)
+        cases10dim1.tournamentWithOnepoint(term=TERM_DICT,problem_dict=PROBLEM_DICT_CONVEX10)
+        cases10dim1.randomWithMultipoints(term=TERM_DICT,problem_dict=PROBLEM_DICT_CONVEX10)
+        cases10dim1.tournamentWithMultipoints(term=TERM_DICT,problem_dict=PROBLEM_DICT_CONVEX10)
     cases10dim1.npArray()
 
     cases10dim2 = TrabCases()
     for _ in range(10):
-        cases10dim2.randomWithOnepoint(problem_dict=PROBLEM_DICT_NCONVEX10)
-        cases10dim2.tournamentWithOnepoint(problem_dict=PROBLEM_DICT_NCONVEX10)
-        cases10dim2.randomWithMultipoints(problem_dict=PROBLEM_DICT_NCONVEX10)
-        cases10dim2.tournamentWithMultipoints(problem_dict=PROBLEM_DICT_NCONVEX10)
+        cases10dim2.randomWithOnepoint(term=TERM_DICT,problem_dict=PROBLEM_DICT_NCONVEX10)
+        cases10dim2.tournamentWithOnepoint(term=TERM_DICT,problem_dict=PROBLEM_DICT_NCONVEX10)
+        cases10dim2.randomWithMultipoints(term=TERM_DICT,problem_dict=PROBLEM_DICT_NCONVEX10)
+        cases10dim2.tournamentWithMultipoints(term=TERM_DICT,problem_dict=PROBLEM_DICT_NCONVEX10)
     cases10dim2.npArray()
 
     cases2dim1 = TrabCases()
     for _ in range(10):
-        cases2dim1.randomWithOnepoint(problem_dict=PROBLEM_DICT_CONVEX)
-        cases2dim1.tournamentWithOnepoint(problem_dict=PROBLEM_DICT_CONVEX)
-        cases2dim1.randomWithMultipoints(problem_dict=PROBLEM_DICT_CONVEX)
-        cases2dim1.tournamentWithMultipoints(problem_dict=PROBLEM_DICT_CONVEX)
+        cases2dim1.randomWithOnepoint(term=TERM_DICT,problem_dict=PROBLEM_DICT_CONVEX)
+        cases2dim1.tournamentWithOnepoint(term=TERM_DICT,problem_dict=PROBLEM_DICT_CONVEX)
+        cases2dim1.randomWithMultipoints(term=TERM_DICT,problem_dict=PROBLEM_DICT_CONVEX)
+        cases2dim1.tournamentWithMultipoints(term=TERM_DICT,problem_dict=PROBLEM_DICT_CONVEX)
     cases2dim1.npArray()
 
     cases2dim2 = TrabCases()
     for _ in range(10):
-        cases2dim2.randomWithOnepoint(problem_dict=PROBLEM_DICT_NCONVEX)
-        cases2dim2.tournamentWithOnepoint(problem_dict=PROBLEM_DICT_NCONVEX)
-        cases2dim2.randomWithMultipoints(problem_dict=PROBLEM_DICT_NCONVEX)
-        cases2dim2.tournamentWithMultipoints(problem_dict=PROBLEM_DICT_NCONVEX)
+        cases2dim2.randomWithOnepoint(term=TERM_DICT,problem_dict=PROBLEM_DICT_NCONVEX)
+        cases2dim2.tournamentWithOnepoint(term=TERM_DICT,problem_dict=PROBLEM_DICT_NCONVEX)
+        cases2dim2.randomWithMultipoints(term=TERM_DICT,problem_dict=PROBLEM_DICT_NCONVEX)
+        cases2dim2.tournamentWithMultipoints(term=TERM_DICT,problem_dict=PROBLEM_DICT_NCONVEX)
     cases2dim2.npArray()
     
     # Print results
@@ -47,7 +47,7 @@ def run_test_cases():
         f.write("Randomico com um ponto:"+"\n")
         f.write("Media fitness de 10 iteracoes: " + str(np.sum(cases.randomWithOnepointFitness) / 10) +"\n")
         f.write("Melhor fitness de 10 iteracoes: " + str(np.min(cases.randomWithOnepointFitness))+"\n")
-
+        
         f.write("Torneio com um ponto:"+"\n")
         f.write("Media fitness de 10 iteracoes: " + str(np.sum(cases.tournamentWithOnepointFitness) / 10)+"\n")
         f.write("Melhor fitness de 10 iteracoes: " + str(np.min(cases.tournamentWithOnepointFitness))+"\n")
@@ -61,7 +61,11 @@ def run_test_cases():
         f.write("Melhor fitness de 10 iteracoes: " + str(np.min(cases.tournamentWithMultipointsFitness))+"\n")
         f.write("=========================================="+"\n")
         f.close()
-    
+
+        
+
+        
+
     print_results(cases10dim1, "Casos Convexo e 10 dimensoes",NAME_CONVEX)
     print_results(cases10dim2, "Casos nao Convexo e 10 dimensoes",NAME_NCONVEX)
     print_results(cases2dim1, "Casos Convexo e 2 dimensoes",NAME_CONVEX)
@@ -79,8 +83,8 @@ def run_test_cases():
 
     for i in range(len(probCrossVect)):
         for j in range(len(k_wayTournamentVect)):
-            casesTestCase1Dim2.testCaseTournament(problem_dict=PROBLEM_DICT_CONVEX,pc=probCrossVect[i],k_way=k_wayTournamentVect[j])
-            casesTestCase2Dim2.testCaseTournament(problem_dict=PROBLEM_DICT_NCONVEX,pc=probCrossVect[i],k_way=k_wayTournamentVect[j])
+            casesTestCase1Dim2.testCaseTournament(term=TERM_DICT,problem_dict=PROBLEM_DICT_CONVEX,pc=probCrossVect[i],k_way=k_wayTournamentVect[j])
+            casesTestCase2Dim2.testCaseTournament(term=TERM_DICT,problem_dict=PROBLEM_DICT_NCONVEX,pc=probCrossVect[i],k_way=k_wayTournamentVect[j])
     casesTestCase1Dim2.npArray()
     casesTestCase2Dim2.npArray()
 
