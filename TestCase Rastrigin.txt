@@ -1,0 +1,6 @@
+Best Point for case CSA: [10.34450048 56.18319219] represented by the star
+Best Fitness for case CSA: 800.5337212268274 represented by the star
+Mean Fitness for case CSA: 801.4702669776733 represented by the star
+Best Point for case Tournament with Multipoints: [10.67956786 36.93941364] represented by the circle
+Best Fitness for case Tournament with Multipoints: 801.8189366513922 represented by the circle
+Mean Fitness for case Tournament with Multipoints: 807.8125340659589 represented by the circle

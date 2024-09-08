@@ -12,3 +12,17 @@ Torneio com multiplos pontos:
 Media fitness de 10 iteracoes: 537745.4165125487
 Melhor fitness de 10 iteracoes: 1050.221798126169
 ==========================================
+============== Casos Convexo e 10 dimensoes ==============
+Randomico com um ponto:
+Media fitness de 10 iteracoes: 1811231881.7500618
+Melhor fitness de 10 iteracoes: 496129449.8884954
+Torneio com um ponto:
+Media fitness de 10 iteracoes: 1112226216.8006759
+Melhor fitness de 10 iteracoes: 33123777.914296746
+Randomico com multiplos pontos:
+Media fitness de 10 iteracoes: 2477568257.643823
+Melhor fitness de 10 iteracoes: 263490967.00675237
+Torneio com multiplos pontos:
+Media fitness de 10 iteracoes: 484278786.1305739
+Melhor fitness de 10 iteracoes: 97279702.6937241
+==========================================

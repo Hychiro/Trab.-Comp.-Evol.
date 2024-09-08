@@ -225,3 +225,111 @@ def print_Others(cases,name):
     model1.history.save_local_best_fitness_chart(filename=f"{name}/tournamentTestCase/lbfc")
     model1.history.save_runtime_chart(filename=f"{name}/tournamentTestCase/rtc")
     model1.history.save_exploration_exploitation_chart(filename=f"{name}/tournamentTestCase/eec")
+
+def print_OthersCSA(cases,name):
+
+    model1 = cases.csaCaseModels[np.argmin(cases.csaCaseFitness)]
+        
+    model1.history.save_global_objectives_chart(filename=f"{name}/csaCase/goc")
+    model1.history.save_local_objectives_chart(filename=f"{name}/csaCase/loc")
+    model1.history.save_global_best_fitness_chart(filename=f"{name}/csaCase/gbfc")
+    model1.history.save_local_best_fitness_chart(filename=f"{name}/csaCase/lbfc")
+    model1.history.save_runtime_chart(filename=f"{name}/csaCase/rtc")
+    model1.history.save_exploration_exploitation_chart(filename=f"{name}/csaCase/eec")
+
+    model2 = cases.tournamentTestCaseModels[np.argmin(cases.tournamentTestCaseFitness)]
+        
+    model2.history.save_global_objectives_chart(filename=f"{name}/tournamentWithMultipoints/goc")
+    model2.history.save_local_objectives_chart(filename=f"{name}/tournamentWithMultipoints/loc")
+    model2.history.save_global_best_fitness_chart(filename=f"{name}/tournamentWithMultipoints/gbfc")
+    model2.history.save_local_best_fitness_chart(filename=f"{name}/tournamentWithMultipoints/lbfc")
+    model2.history.save_runtime_chart(filename=f"{name}/tournamentWithMultipoints/rtc")
+    model2.history.save_exploration_exploitation_chart(filename=f"{name}/tournamentWithMultipoints/eec")
+
+
+
+def plot_heatmap_with_points_CaseWithCSA(func, bounds=[-100, 100], cases=None, name="", p_aValue = 0.3):
+    """
+    Generates and plots a heatmap of the function, and overlays specified points.
+
+    Parameters:
+    - func: function, The function to be plotted.
+    - bounds: list, The bounds for the grid (default is [-100, 100]).
+    - cases: object, Contains the cases to evaluate and plot points based on minimum fitness.
+
+    Returns:
+    None
+    """
+    # Generate a grid of x and y values
+    x = np.linspace(bounds[0], bounds[1], 100)
+    y = np.linspace(bounds[0], bounds[1], 100)
+    X, Y = np.meshgrid(x, y)
+
+    # Evaluate the function at each point on the grid
+    Z = np.array([func.evaluate([xi, yi]) for xi, yi in zip(X.flatten(), Y.flatten())])
+    Z = Z.reshape(X.shape)
+
+    # Plot the heatmap
+    plt.figure(figsize=(8, 6))
+    sns.heatmap(Z, cmap='viridis', xticklabels=False, yticklabels=False)
+    indices = None
+    point_coords = None
+    fitness = None
+    # If specific cases are provided, find the indices of their minimum values
+    if cases is not None:
+        indices = [
+       
+            np.argmin(cases.csaCaseFitness),
+            np.argmin(cases.tournamentTestCaseFitness),
+        ]
+        point_coords = [
+            cases.csaCaseResult[indices[0]],
+            cases.tournamentTestCaseResult[indices[1]],
+        ]
+        fitness = [
+     
+            np.min(cases.csaCaseFitness),
+            np.min(cases.tournamentTestCaseFitness),
+        ]
+        
+    # Plot points if coordinates are provided
+    if point_coords is not None:
+        count = 0
+        for point_x, point_y in point_coords:
+            # Find the closest indices in the grid to plot the point
+            ix = np.argmin(np.abs(x - point_x))
+            iy = np.argmin(np.abs(y - point_y))
+            if count == 0:
+                plt.plot(ix + 0.5, iy + 0.5, '*', color='red' , markersize=10)  
+            elif count == 1:
+                plt.plot(ix + 0.5, iy + 0.5, 'o', color='red' , markersize=10)
+            count = count + 1
+            
+
+    # Add labels and title
+    print("==========================================")
+    plt.title('Function Heatmap with Points Overlay')
+    plt.xlabel('x')
+    plt.ylabel('y')
+    print(name)
+    nameChange = name.split(":")
+    print(f'Best Point for case CSA: {point_coords[0]} represented by the star')
+    print(f'Best Fitness for case CSA: {fitness[0]} represented by the star')
+    print(f'Mean Fitness for case CSA: {str(np.sum(cases.csaCaseFitness) / 10)} represented by the star')
+    print(f'Best Point for case Tournament with Multipoints: {point_coords[1]} represented by the circle')
+    print(f'Best Fitness for case Tournament with Multipoints: {fitness[1]} represented by the circle')
+    print(f'Mean Fitness for case Tournament with Multipoints: {str(np.sum(cases.tournamentTestCaseFitness) / 10)} represented by the circle')
+
+    print("==========================================")
+    f = open(f"TestCase {nameChange[0]}.txt", "w")
+    f.write(f'Best Point for case CSA: {point_coords[0]} represented by the star\n')
+    f.write(f'Best Fitness for case CSA: {fitness[0]} represented by the star\n')
+    f.write(f'Mean Fitness for case CSA: {str(np.sum(cases.csaCaseFitness) / 10)} represented by the star\n')
+    f.write(f'Best Point for case Tournament with Multipoints: {point_coords[1]} represented by the circle\n')
+    f.write(f'Best Fitness for case Tournament with Multipoints: {fitness[1]} represented by the circle\n')
+    f.write(f'Mean Fitness for case Tournament with Multipoints: {str(np.sum(cases.tournamentTestCaseFitness) / 10)} represented by the circle\n')
+
+    f.close()
+    plt.savefig(f'TestCase {nameChange[0]}.png')
+    plt.show()
+    print_OthersCSA(cases=cases, name=nameChange[0])

@@ -7,6 +7,7 @@ class TrabCases:
     
     def __init__(self):
         self.GA = mp.evolutionary_based.GA
+        self.CSA = mp.swarm_based.CSA
         self.randomWithOnepointResult = []
         self.randomWithOnepointFitness = []
         self.randomWithOnepointModels = []
@@ -22,7 +23,9 @@ class TrabCases:
         self.tournamentTestCaseResult = []
         self.tournamentTestCaseFitness = []
         self.tournamentTestCaseModels = []
-    
+        self.csaCaseResult = []
+        self.csaCaseFitness = []
+        self.csaCaseModels =[]
     def npArray(self):
         self.randomWithOnepointResult = np.array(self.randomWithOnepointResult)
         self.randomWithOnepointFitness = np.array(self.randomWithOnepointFitness)
@@ -43,6 +46,10 @@ class TrabCases:
         self.tournamentTestCaseResult = np.array(self.tournamentTestCaseResult)
         self.tournamentTestCaseFitness = np.array(self.tournamentTestCaseFitness)
         self.tournamentTestCaseModels = np.array(self.tournamentTestCaseModels)
+
+        self.csaCaseResult = np.array(self.csaCaseResult)
+        self.csaCaseFitness = np.array(self.csaCaseFitness)
+        self.csaCaseModels =np.array(self.csaCaseModels)
 
     def randomWithOnepoint(self, problem_dict, term=None):
         model = self.GA.EliteMultiGA(epoch=1000, pop_size=50, selection="random", crossover="multi_points")
@@ -82,3 +89,10 @@ class TrabCases:
         self.tournamentTestCaseResult.append(result.solution)
         self.tournamentTestCaseFitness.append(result.target.fitness)
         self.tournamentTestCaseModels.append(model)
+
+    def csaCase(self, problem_dict, term=None, p_a=0.3):
+        model = self.CSA.OriginalCSA(epoch=1000, pop_size=50,p_a=p_a)
+        result = model.solve(problem_dict, termination=term)
+        self.csaCaseResult.append(result.solution)
+        self.csaCaseFitness.append(result.target.fitness)
+        self.csaCaseModels.append(model)
