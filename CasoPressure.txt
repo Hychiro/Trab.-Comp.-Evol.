@@ -1,0 +1,49 @@
+============== === ==============
+GA com torneio e multipontos:
+Media fitness de 10 iteracoes: 246955.17147298058
+Melhor fitness de 10 iteracoes: 5337.254046583783
+Ponto de melhor fitness de 10 iteracoes: [  0.58439734   0.58439734  51.17899743 115.16349971]
+CSA:
+Media fitness de 10 iteracoes: 9008.811780595399
+Melhor fitness de 10 iteracoes: 3.8600000000000003
+Ponto de melhor fitness de 10 iteracoes: [  0.   0. 200.  10.]
+============== === ==============
+GA com torneio e multipontos:
+Media fitness de 10 iteracoes: 153991.25415977906
+Melhor fitness de 10 iteracoes: 17212.172368741645
+Ponto de melhor fitness de 10 iteracoes: [ 1.27616622  1.27616622 64.9238611  97.83570189]
+CSA:
+Media fitness de 10 iteracoes: 9072.510568355876
+Melhor fitness de 10 iteracoes: 2.4003079470538236
+Ponto de melhor fitness de 10 iteracoes: [1.00000000e-04 1.00000000e-04 7.29674883e+01 1.00000000e+01]
+============== === ==============
+GA com torneio e multipontos:
+Media fitness de 10 iteracoes: 226075.7097598337
+Melhor fitness de 10 iteracoes: 21538.66630704112
+Ponto de melhor fitness de 10 iteracoes: [ 1.82073461  1.82073461 70.32551441 10.        ]
+CSA:
+Media fitness de 10 iteracoes: 10248.706447248875
+Melhor fitness de 10 iteracoes: 1995.9693111976815
+Ponto de melhor fitness de 10 iteracoes: [ 0.1         0.1        95.01069793 62.28442287]
+============== === ==============
+GA com torneio e multipontos:
+Media fitness de 10 iteracoes: 119663.71578843062
+Melhor fitness de 10 iteracoes: 4306.179693116827
+Ponto de melhor fitness de 10 iteracoes: [ 0.34621179  0.34621179 79.98353652 10.        ]
+CSA:
+Media fitness de 10 iteracoes: 13008.420593297327
+Melhor fitness de 10 iteracoes: 1174.4152186376048
+Ponto de melhor fitness de 10 iteracoes: [ 0.1         0.1        78.91236317 10.        ]
+============== === ==============
+GA com torneio e multipontos:
+Media fitness de 10 iteracoes: 124480.63551984649
+Melhor fitness de 10 iteracoes: 5218.8729350383555
+Ponto de melhor fitness de 10 iteracoes: [ 0.37540058  0.37540058 84.60942795 10.        ]
+CSA:
+Media fitness de 10 iteracoes: 9638.578301573792
+Melhor fitness de 10 iteracoes: 2057.067914771631
+Ponto de melhor fitness de 10 iteracoes: [1.00000000e-01 1.00000000e-01 7.75157387e+01 2.00000000e+02]
+GWO:
+Media fitness de 10 iteracoes: 764.3635428243261
+Melhor fitness de 10 iteracoes: 764.3051477928544
+Ponto de melhor fitness de 10 iteracoes: [ 0.1         0.1        51.39272319 87.66643809]

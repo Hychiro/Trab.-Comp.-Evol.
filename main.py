@@ -102,7 +102,9 @@ def run_test_cases2():
         test2.csaCase(term=TERM_DICT,problem_dict=PROBLEM_DICT_9,p_a=p_aValues[i])
     p_aValue1 = np.argmin(test1.csaCaseFitness)
     p_aValue2 = np.argmin(test2.csaCaseFitness)
-
+    f = open(f"Caso.txt", "a")
+    f.write(f"{p_aValue1},{p_aValue2}")
+    f.clode()
     cases2dim1 = TrabCases()
     for _ in range(10):
         cases2dim1.testCaseTournament(term=TERM_DICT,problem_dict=PROBLEM_DICT_5, pc=0.9,k_way=0.5)
