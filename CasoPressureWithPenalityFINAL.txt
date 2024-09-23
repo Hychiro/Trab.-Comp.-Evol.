@@ -1,0 +1,27 @@
+============== === ==============
+penalizacoes: [10000, 100000, 1, 1]GA com torneio e multipontos:
+Media fitness de 10 iteracoes: 116062.18224667782
+Melhor fitness de 10 iteracoes: 13047.57257207466
+Ponto de melhor fitness de 10 iteracoes: [1.1860251131185735,1.1860251131185735,59.625409468261914,80.17878985077198]
+CSA:
+Media fitness de 10 iteracoes: 17581.977427177288
+Melhor fitness de 10 iteracoes: 9226.004884463713
+Ponto de melhor fitness de 10 iteracoes: [0.7802931616515515,1.0656073873482916,42.32815489244106,173.62429138298057]
+============== === ==============
+penalizacoes: [100000, 100000, 10, 1]GA com torneio e multipontos:
+Media fitness de 10 iteracoes: 172274.11716508976
+Melhor fitness de 10 iteracoes: 12866.228536954433
+Ponto de melhor fitness de 10 iteracoes: [1.2331349931783846,1.2331349931783846,61.538147214039306,51.99871491835375]
+CSA:
+Media fitness de 10 iteracoes: 21728.262932436362
+Melhor fitness de 10 iteracoes: 9736.136908717534
+Ponto de melhor fitness de 10 iteracoes: [1.1871456564575467,0.4845784351872887,52.47401012174274,99.32102612920583]
+============== === ==============
+penalizacoes: [100000, 1000000, 10, 1]GA com torneio e multipontos:
+Media fitness de 10 iteracoes: 108892.38975208439
+Melhor fitness de 10 iteracoes: 15968.789022489433
+Ponto de melhor fitness de 10 iteracoes: [0.9378626362507767,3.234841630172495,41.582122282099604,195.79603316687306]
+CSA:
+Media fitness de 10 iteracoes: 23454.729068991237
+Melhor fitness de 10 iteracoes: 9763.570288252657
+Ponto de melhor fitness de 10 iteracoes: [0.9581491296463979,1.2961530611803225,44.309494899070145,151.09232560732949]

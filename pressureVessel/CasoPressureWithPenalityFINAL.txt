@@ -1,0 +1,9 @@
+============== === ==============
+penalizacoes: [100000, 1000000, 10, 1]GA com torneio e multipontos:
+Media fitness de 10 iteracoes: 113935.2914128052
+Melhor fitness de 10 iteracoes: 15565.960441736535
+Ponto de melhor fitness de 10 iteracoes: [1.486561640201562,1.486561640201562,67.17898267306431,10.0]
+CSA:
+Media fitness de 10 iteracoes: 23282.642413927337
+Melhor fitness de 10 iteracoes: 10995.691984857503
+Ponto de melhor fitness de 10 iteracoes: [1.2679261901564436,1.0014479747886824,60.333650231198,49.13218186705952]

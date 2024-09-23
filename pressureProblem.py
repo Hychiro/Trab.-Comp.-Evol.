@@ -7,7 +7,7 @@ import mealpy as mp
 GA = mp.evolutionary_based.GA
 CSA = mp.swarm_based.CSA
 flag = True
-penalidade = [1,1,1,1]
+penalidade = [100000, 1000000, 10, 1]
 
 
 
@@ -79,9 +79,9 @@ while flag:
         "bounds": FloatVar(lb=[0, 0, 10., 10.], ub=[99., 99., 200., 200.]),  # Definir os limites adequados
         "minmax": "min",
     }
-    term = {
-    "max_early_stop": 250
-    }
+    # term = {
+    # "max_early_stop": 250
+    # }
 
     tournamentTestCaseResult = []
     tournamentTestCaseFitness= []
@@ -90,19 +90,20 @@ while flag:
     csaCaseResult = []
     csaCaseFitness = []
     csaCaseModels = []
+    name = "pressureVessel"
 
 
     # Definir o modelo e resolver o problema
     for _ in range(30):
         model = GA.EliteMultiGA(epoch=1000, pop_size=50, pc=0.9, k_way=0.5, selection="tournament", crossover="multi_points")
-        result = model.solve(problem_constrained, termination=term)
+        result = model.solve(problem_constrained )
         tournamentTestCaseResult.append(result.solution)
         tournamentTestCaseFitness.append(result.target.fitness)
         tournamentTestCaseModels.append(model)
 
     for _ in range(30):
-        model = CSA.OriginalCSA(epoch=1000, pop_size=50,p_a=0.4)
-        result = model.solve(problem_constrained,termination=term)
+        model = CSA.OriginalCSA(epoch=1000, pop_size=50,p_a=0.7)
+        result = model.solve(problem_constrained)
         csaCaseResult.append(result.solution)
         csaCaseFitness.append(result.target.fitness)
         csaCaseModels.append(model)
@@ -116,7 +117,7 @@ while flag:
     csaCaseFitness = np.array(csaCaseFitness)
     csaCaseModels =np.array(csaCaseModels)
 
-    f = open(f"CasoPressureWithPenalityTRUE2.txt", "a")
+    f = open(f"{name}/CasoPressureWithPenalityFINAL.txt", "a")
     f.write(f"============== === =============="+"\n")
     f.write(f"penalizacoes: {penalidade}")
     f.write("GA com torneio e multipontos:"+"\n")
@@ -133,6 +134,24 @@ while flag:
     f.close()
     flagAux1 = verifica(csaCaseResult[np.argmin(csaCaseFitness)],tournamentTestCaseResult[np.argmin(tournamentTestCaseFitness)])
     print(flagAux1)
+    model1 = csaCaseModels[np.argmin(csaCaseFitness)]    
+    model1.history.save_global_objectives_chart(filename=f"{name}/csaCase/goc")
+    model1.history.save_local_objectives_chart(filename=f"{name}/csaCase/loc")
+    model1.history.save_global_best_fitness_chart(filename=f"{name}/csaCase/gbfc")
+    model1.history.save_local_best_fitness_chart(filename=f"{name}/csaCase/lbfc")
+    model1.history.save_runtime_chart(filename=f"{name}/csaCase/rtc")
+    model1.history.save_exploration_exploitation_chart(filename=f"{name}/csaCase/eec")
+
+    
+    model2 = tournamentTestCaseModels[np.argmin(tournamentTestCaseFitness)]
+    model2.history.save_global_objectives_chart(filename=f"{name}/tournamentWithMultipoints/goc")
+    model2.history.save_local_objectives_chart(filename=f"{name}/tournamentWithMultipoints/loc")
+    model2.history.save_global_best_fitness_chart(filename=f"{name}/tournamentWithMultipoints/gbfc")
+    model2.history.save_local_best_fitness_chart(filename=f"{name}/tournamentWithMultipoints/lbfc")
+    model2.history.save_runtime_chart(filename=f"{name}/tournamentWithMultipoints/rtc")
+    model2.history.save_exploration_exploitation_chart(filename=f"{name}/tournamentWithMultipoints/eec")
+
+
     if not flagAux1:
         flag = False
 
